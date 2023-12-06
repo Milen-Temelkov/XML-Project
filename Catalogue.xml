@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?<xml-stylesheet type="text/xsl" href="project.xsl"?>
+
+<!DOCTYPE catalogue [
+<!ENTITY img1 SYSTEM "randomurl.com">
+<!-- Place for images -->
+]>	
+
+
+<cat:catalogue xmlns:cat="Catalogue.xsd">
+	<cat:carlist>
+		<cat:car>
+			<cat:brand>Mercedes</cat:brand>
+				<cat:model>
+					<cat:Mercedes>C class</cat:Mercedes>
+			</cat:model>
+			<cat:year>2015</cat:year>
+			<cat:engine>
+				<cat:type>Combustion</cat:type>
+				<cat:fuel>
+					<cat:Combustion>Petrol</cat:Combustion>
+				</cat:fuel>
+				<cat:power>150</cat:power>
+				<cat:miliage>500000</cat:miliage>
+				<cat:ecoStandart>EURO 5</cat:ecoStandart>
+			</cat:engine>
+			<cat:transmission>Manual</cat:transmission>
+			<cat:price>10000</cat:price>
+			<cat:location>Burgas</cat:location>
+			<cat:colour>red</cat:colour>
+		</cat:car>
+	</cat:carList>
+	
+</cat:catalogue>
