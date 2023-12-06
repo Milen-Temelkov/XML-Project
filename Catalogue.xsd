@@ -2,445 +2,510 @@
 <xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified">
 
-	
-	<!-- Keys -->
 
-	<xs:key name="brandKey">
-		<xs:selector xpath="car"/>
-		<xs:field xpath="@brand"/>
-	</xs:key>
+<!-- this is ambiguous -->
+<xs:simpleType name="car_brands">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="Toyota"/>
+		<xs:enumeration value="VW"/>
+		<xs:enumeration value="Ford"/>
+		<xs:enumeration value="Honda"/>
+		<xs:enumeration value="Nissan"/>
+		<xs:enumeration value="Mercedes"/>
+		<xs:enumeration value="BMW"/>
+		<xs:enumeration value="Audi"/>
+		<xs:enumeration value="Volvo"/>
+		<xs:enumeration value="Mazda"/>
+		<xs:enumeration value="Opel"/>
+		<xs:enumeration value="Peugeot"/>
+		<xs:enumeration value="Renault"/>
+		<xs:enumeration value="Dacia"/>
+		<xs:enumeration value="Seat"/>
+	</xs:restriction>
+</xs:simpleType>
 
-	<xs:keyref name="modelKeyRef" refer="brandKey">
-		<xs:selector xpath="car"/>
-		<xs:field xpath="@model"/>
-	</xs:keyref>
-	
-	<!-- /Keys-->
+<!-- simple types predefinition -->
+<xs:simpleType name="price_int">
+	<xs:restriction base="xs:integer">
+		<xs:minInclusive value="0"/>
+	</xs:restriction>
+</xs:simpleType>
 
-<!-- Attributes-->
+<xs:simpleType name="transmission_type">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="Manual"/>
+		<xs:enumeration value="Automatic"/>
+	</xs:restriction>
+</xs:simpleType>
 
-    <xs:simpleType name="brand">
-        <xs:restriction base="xs:string">
-                <xs:enumeration value="Toyota"/>
-				<xs:enumeration value="VW"/>
-				<xs:enumeration value="Ford"/>
-				<xs:enumeration value="Honda"/>
-				<xs:enumeration value="Nissan"/>
-				<xs:enumeration value="Mercedes"/>
-				<xs:enumeration value="BMW"/>
-				<xs:enumeration value="Audi"/>
-				<xs:enumeration value="Volvo"/>
-				<xs:enumeration value="Mazda"/>
-				<xs:enumeration value="Opel"/>
-				<xs:enumeration value="Peugeot"/>
-				<xs:enumeration value="Renault"/>
-				<xs:enumeration value="Dacia"/>
-				<xs:enumeration value="Seat"/>
-    	</xs:restriction>
-	</xs:simpleType>
+<xs:simpleType name="production_year">
+	<xs:restriction base="xs:gYear">
+		<xs:minInclusive value="1912"/>
+		<xs:maxInclusive value="2024"/>
+	</xs:restriction>
+</xs:simpleType>
 
+<xs:simpleType name="bulgarian_regions">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="Blagoevgrad"/>
+	  	<xs:enumeration value="Burgas"/>
+	  	<xs:enumeration value="Dobrich"/>
+	  	<xs:enumeration value="Gabrovo"/>
+	  	<xs:enumeration value="Haskovo"/>
+	  	<xs:enumeration value="Kardzhali"/>
+	  	<xs:enumeration value="Kyustendil"/>
+	  	<xs:enumeration value="Lovech"/>
+	  	<xs:enumeration value="Montana"/>
+	  	<xs:enumeration value="Pazardzhik"/>
+	  	<xs:enumeration value="Pernik"/>
+	  	<xs:enumeration value="Pleven"/>
+	  	<xs:enumeration value="Plovdiv"/>
+	  	<xs:enumeration value="Razgrad"/>
+	  	<xs:enumeration value="Ruse"/>
+	  	<xs:enumeration value="Shumen"/>
+	  	<xs:enumeration value="Silistra"/>
+	  	<xs:enumeration value="Sliven"/>
+	  	<xs:enumeration value="Smolyan"/>
+	  	<xs:enumeration value="Sofia"/>
+	  	<xs:enumeration value="Sofia City"/>
+	  	<xs:enumeration value="Stara Zagora"/>
+	  	<xs:enumeration value="Targovishte"/>
+	  	<xs:enumeration value="Varna"/>
+	  	<xs:enumeration value="Veliko Tarnovo"/>
+	  	<xs:enumeration value="Vidin"/>
+	  	<xs:enumeration value="Vratsa"/>
+	  	<xs:enumeration value="Yambol"/>
+	</xs:restriction>
+</xs:simpleType>
 
-	<xs:simpleType name="model">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Corolla"/>
-			<xs:enumeration value="Yaris"/>
-			<xs:enumeration value="Rav4"/>
+<xs:simpleType name="colour_palette">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="red"/>
+		<xs:enumeration value="blue"/>
+		<xs:enumeration value="green"/>
+		<xs:enumeration value="yellow"/>
+		<xs:enumeration value="orange"/>
+		<xs:enumeration value="grey"/>
+		<xs:enumeration value="white"/>
+		<xs:enumeration value="black"/>
+	</xs:restriction>
+</xs:simpleType>
 
-			<xs:enumeration value="Passat"/>
-			<xs:enumeration value="Touareg"/>
-			<xs:enumeration value="Golf"/>
+<xs:simpleType name="engine_types">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="Diesel engine"/>
+		<xs:enumeration value="Petrol engine"/>
+		<xs:enumeration value="Electric engine"/>
+		<xs:enumeration value="Diesel-electric engine"/>
+		<xs:enumeration value="Petrol-electric engine"/>
+	</xs:restriction>
+</xs:simpleType>
 
-			<xs:enumeration value="Focus"/>
-			<xs:enumeration value="Raptor"/>
-			<xs:enumeration value="Kuga"/>
+<xs:simpleType name="horsepower_int">
+	<xs:restriction base="xs:integer">
+		<xs:minInclusive value="50"/>
+		<xs:maxInclusive value="2000"/>
+	</xs:restriction>
+</xs:simpleType>
 
-			<xs:enumeration value="Civic"/>
-			<xs:enumeration value="Accord"/>
-			<xs:enumeration value="CR-V"/>
+<xs:simpleType name="miliage_int">
+	<xs:restriction base="xs:integer">
+		<xs:minInclusive value="0"/>
+	</xs:restriction>
+</xs:simpleType>
 
-			<xs:enumeration value="Rogue"/>
-			<xs:enumeration value="Altima"/>
-			<xs:enumeration value="Maxima"/>
+<xs:simpleType name="ecoStandarts"> 
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="EURO 1"/>
+		<xs:enumeration value="EURO 2"/>
+		<xs:enumeration value="EURO 3"/>
+		<xs:enumeration value="EURO 4"/>
+		<xs:enumeration value="EURO 5"/>
+		<xs:enumeration value="EURO 6"/>
+		<xs:enumeration value="EURO 7"/>
+	</xs:restriction>
+</xs:simpleType>
 
-			<xs:enumeration value="C class"/>
-			<xs:enumeration value="E class"/>
-			<xs:enumeration value="S class"/>
-
-			<xs:enumeration value="3 series"/>
-			<xs:enumeration value="5 series"/>
-			<xs:enumeration value="7 series"/>
-
-			<xs:enumeration value="A4"/>
-			<xs:enumeration value="A6"/>
-			<xs:enumeration value="A8"/>
-
-			<xs:enumeration value="S90"/>
-			<xs:enumeration value="XC90"/>
-			<xs:enumeration value="S60"/>
-
-			<xs:enumeration value="3"/>
-			<xs:enumeration value="6"/>
-			<xs:enumeration value="CX-5"/>
-
-			<xs:enumeration value="Corsa"/>
-			<xs:enumeration value="Astra"/>
-			<xs:enumeration value="Insignia"/>
-
-			<xs:enumeration value="208"/>
-			<xs:enumeration value="308"/>
-			<xs:enumeration value="508"/>
-
-			<xs:enumeration value="Clio"/>
-			<xs:enumeration value="Megane"/>
-			<xs:enumeration value="Arkana"/>
-
-			<xs:enumeration value="Sandero"/>
-			<xs:enumeration value="Logan"/>
-			<xs:enumeration value="Duster"/>
-
-			<xs:enumeration value="Ibiza"/>
-			<xs:enumeration value="Leon"/>
-			<xs:enumeration value="Ateca"/>
-		</xs:restriction>
-	</xs:simpleType>
-
-
-	<!-- /Attributes -->
-
-<!-- Simple types -->
-
-	<xs:element name="power">
-		<xs:simpleType>
-			<xs:restriction base="xs:integer">
-				<xs:minInclusive value="50"/>
-				<xs:maxInclusive value="2000"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
-
-	<xs:element name="miliage">
-		<xs:simpleType>
-			<xs:restriction base="xs:integer">
-				<xs:minInclusive value="0"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
-
-	<xs:element name="ecoStandart">
-		<xs:simpleType>
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="EURO 1"/>
-				<xs:enumeration value="EURO 2"/>
-				<xs:enumeration value="EURO 3"/>
-				<xs:enumeration value="EURO 4"/>
-				<xs:enumeration value="EURO 5"/>
-				<xs:enumeration value="EURO 6"/>
-				<xs:enumeration value="EURO 7"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
-
-	<xs:element name="year">
-		<xs:simpleType>
-			<xs:restriction base="xs:gYear">
-				<xs:minInclusive value="1912"/>
-				<xs:maxInclusive value="2024"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
+<xs:simpleType name="engine_volume">
+	<xs:restriction base="xs:decimal">
+		<xs:minInclusive value="1.0"/>
+		<xs:maxInclusive value="7.0"/>
+	</xs:restriction>
+</xs:simpleType>
 
 
-	<xs:element name="transmission">
-		<xs:simpleType>
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="Manual"/>
-				<xs:enumeration value="Automatic"/>
-				<!--Moje i za 4x4 ili ne-->
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
+<!-- root element -->
+<xs:element name="catalogue">
+	<xs:complexType>
+		<xs:element ref="carList"/>
+	<xs:complexType>
+</xs:element>
 
-	<xs:element name="price">
-		<xs:simpleType>
-			<xs:restriction base="xs:integer">
-				<xs:minInclusive value="0"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
+<!-- list element -->
+<xs:element name="carList">
+	<xs:complexType>
+		<xs:element ref="car" maxOccurs="unbounded"/>
+	</xs:complexType>
+</xs:element>
 
-	<xs:element name="location">
-		<xs:simpleType>
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="Burgas"/>
-				<!--Add more-->
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
-
-	<xs:element name="colour">
-		<xs:simpleType>
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="red"/>
-				<xs:enumeration value="blue"/>
-				<xs:enumeration value="green"/>
-				<xs:enumeration value="yellow"/>
-				<xs:enumeration value="orange"/>
-				<xs:enumeration value="grey"/>
-				<xs:enumeration value="white"/>
-				<xs:enumeration value="black"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
-	
-<!-- /Simple types -->
-
-	
-	<xs:element name="car">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="brand"/>
-				<xs:element ref="model"/>
-				<xs:element ref="year"/>
-				<xs:element ref="engine"/>
-				<xs:element ref="transmission"/>
-				<xs:element ref="price"/>
-				<xs:element ref="location"/>
-				<xs:element ref="colour"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	
-
-	<xs:element name="model">
-		<xs:complexType>
-			<xs:choice>
-				
-				<xs:element name="Toyota">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Corolla"/>
-							<xs:enumeration value="Yaris"/>
-							<xs:enumeration value="Rav4"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-
-				<xs:element name="VW">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Passat"/>
-							<xs:enumeration value="Touareg"/>
-							<xs:enumeration value="Golf"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-
-				<xs:element name="Ford">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Focus"/>
-							<xs:enumeration value="Raptor"/>
-							<xs:enumeration value="Kuga"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-
-				<xs:element name="Honda">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Civic"/>
-							<xs:enumeration value="Accord"/>
-							<xs:enumeration value="CR-V"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-
-				<xs:element name="Nissan">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Rogue"/>
-							<xs:enumeration value="Altima"/>
-							<xs:enumeration value="Maxima"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-
-				<xs:element name="Mercedes">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="C class"/>
-							<xs:enumeration value="E class"/>
-							<xs:enumeration value="S class"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-
-				<xs:element name="BMW">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="3 series"/>
-							<xs:enumeration value="5 series"/>
-							<xs:enumeration value="7 series"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-
-				<xs:element name="Audi">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="A4"/>
-							<xs:enumeration value="A6"/>
-							<xs:enumeration value="A8"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-
-				<xs:element name="Volvo">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="S90"/>
-							<xs:enumeration value="XC90"/>
-							<xs:enumeration value="S60"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-
-				<xs:element name="Mazda">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="3"/>
-							<xs:enumeration value="6"/>
-							<xs:enumeration value="CX-5"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-
-				<xs:element name="Opel">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Corsa"/>
-							<xs:enumeration value="Astra"/>
-							<xs:enumeration value="Insignia"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+<!-- main element -->
+<xs:element name="car">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="brand"/>
+			<xs:element ref="year"/>
+			<xs:element ref="engine"/>
+			<xs:element ref="transmission"/>
+			<xs:element ref="price"/>
+			<xs:element ref="location"/>
+			<xs:element ref="colour"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
 
 
-				<xs:element name="Peugeot">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="208"/>
-							<xs:enumeration value="308"/>
-							<xs:enumeration value="508"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+<!-- car elements -->
+<xs:element name="details">
+	<xs:complexType>
+		<xs:choise>
+			
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Toyota"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Corolla"/>
+								<xs:enumeration value="Yaris"/>
+								<xs:enumeration value="Rav4"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="VW"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Passat"/>
+								<xs:enumeration value="Touareg"/>
+								<xs:enumeration value="Golf"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-				<xs:element name="Renault">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Clio"/>
-							<xs:enumeration value="Megane"/>
-							<xs:enumeration value="Arkana"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Ford"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Focus"/>
+								<xs:enumeration value="Raptor"/>
+								<xs:enumeration value="Kuga"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-				<xs:element name="Dacia">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Sandero"/>
-							<xs:enumeration value="Logan"/>
-							<xs:enumeration value="Duster"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Honda"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Civic"/>
+								<xs:enumeration value="Accord"/>
+								<xs:enumeration value="CR-V"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-				<xs:element name="Seat">
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Ibiza"/>
-							<xs:enumeration value="Leon"/>
-							<xs:enumeration value="Ateca"/>
-							<!--add more-->
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Nissan"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Rogue"/>
+								<xs:enumeration value="Altima"/>
+								<xs:enumeration value="Maxima"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-			</xs:choice>
-		</xs:complexType>
-	</xs:element>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Mercedes"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="C class"/>
+								<xs:enumeration value="E class"/>
+								<xs:enumeration value="S class"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-	
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="BMW"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="3 series"/>
+								<xs:enumeration value="5 series"/>
+								<xs:enumeration value="7 series"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-	<xs:element name="engine">
-		<xs:complexType>
-			<xs:sequence>
-				
-				<xs:element name="type">
-					<xs:simpleType >
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Combustion"/>
-							<xs:enumeration value="Electric"/>
-							<xs:enumeration value="Hybrid"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Audi"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="A4"/>
+								<xs:enumeration value="A6"/>
+								<xs:enumeration value="A8"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-				<xs:element name="fuel">
-					<xs:complexType>
-						<xs:choice>
-							
-							<xs:element name="Combustion">
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="Diesel"/>
-										<xs:enumeration value="Petrol"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Volvo"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="S90"/>
+								<xs:enumeration value="XC90"/>
+								<xs:enumeration value="S60"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-							<xs:element name="Electric">
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="Electricity"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Mazda"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="CX-5"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-							<xs:element name="Hybrid">
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="Diesel-Electricity"/>
-										<xs:enumeration value="Petrol-Electricity"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Opel"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Corsa"/>
+								<xs:enumeration value="Astra"/>
+								<xs:enumeration value="Insignia"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-						</xs:choice>
-					</xs:complexType>
-				</xs:element>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Peugeot"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="208"/>
+								<xs:enumeration value="308"/>
+								<xs:enumeration value="508"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-				
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Renault"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Clio"/>
+								<xs:enumeration value="Megane"/>
+								<xs:enumeration value="Arkana"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Dacia"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Sandero"/>
+								<xs:enumeration value="Logan"/>
+								<xs:enumeration value="Duster"/>>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
 
-	
-	
-</xs:schema>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="brand">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Seat"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="model">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Ibiza"/>
+								<xs:enumeration value="Leon"/>
+								<xs:enumeration value="Ateca"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+
+		</xs:choice>
+	</xs:complexType>
+<xs:element>
+
+<xs:element name="engine">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="volume" type="engine_volume"/>
+			<xs:element name="type" type="engine_types"/>
+			<xs:element name="power" type="horsepower_int"/>
+			<xs:element name="miliage" type="miliage_int"/>
+			<xs:element name="ecoStandart" type="ecoStandarts"/>
+		<xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="year" type="production_year"/>
+
+<xs:element name="transmission" type="transmission_type"/>
+
+<xs:element name="price" type="price_int"/>
+
+<xs:element name="location" type="bulgarian_regions"/>
+
+<xs:element name="colour" type="colour_palette"/>
