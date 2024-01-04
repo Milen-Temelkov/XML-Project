@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Car Catalogue</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: lightblue;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .column {
+      flex: 0 0 calc(33.33% - 20px);
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    .car-container {
+      border: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      overflow: hidden;
+    }
+
+    .car-image {
+      flex-shrink: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .car-image img {
+      max-width: 100%;
+      height: auto;
+      max-height: 50%;
+      object-fit: cover;
+    }
+
+    .car-details {
+      flex: 1;
+      line-height: 1; /* Reduced line height */
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .car-details h2 {
+      margin-bottom: 5px;
+      font-size: 1em; /* Smaller font size for headings */
+    }
+
+    .car-details p,
+    .car-details ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0; /* Removed margin for paragraphs and lists */
+      font-size: 0.8em; /* Smaller font size for text */
+    }
+
+    .car-details ul li {
+      display: flex;
+      align-items: center; /* Align items in a row */
+      margin-bottom: 2px; /* Reduced margin for list items */
+    }
+
+    .car-details ul li span {
+      margin-right: 5px; /* Add space after colon */
+    }
+
+    .caption {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="caption">Car Catalogue</h1>
+
+  <div class="row">
+    <div class="column">
+      <div class="car-container">
+        <div class="car-image">
+          <img src="https://media.graphassets.com/qjtAYwCZSquBKVmmPXMu" alt="Car Image">
+        </div>
+        <div class="car-details">
+          <h2>Mercedes C class</h2>
+          <p>Year:2010</p>
+          <p>Transmission:Manual</p>
+          <p>Price:10000</p>
+          <p>Location:Sofia</p>
+          <p>Colour:red</p>
+          <ul>
+            <li><span>Volume:</span>1.5</li>
+            <li><span>Type:</span>Diesel</li>
+            <li><span>Power:</span>POWER</li>
+            <li><span>Mileage:</span>169000</li>
+            <li><span>Eco Standard:</span>Euro 5</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="car-container">
+        <div class="car-image">
+          <img src="https://media.graphassets.com/qjtAYwCZSquBKVmmPXMu" alt="Car Image">
+        </div>
+        <div class="car-details">
+          <h2>Mercedes C class</h2>
+          <p>Year:2010</p>
+          <p>Transmission:Manual</p>
+          <p>Price:10000</p>
+          <p>Location:Sofia</p>
+          <p>Colour:red</p>
+          <ul>
+            <li><span>Volume:</span>1.5</li>
+            <li><span>Type:</span>Diesel</li>
+            <li><span>Power:</span>POWER</li>
+            <li><span>Mileage:</span>169000</li>
+            <li><span>Eco Standard:</span>Euro 5</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="car-container">
+        <div class="car-image">
+          <img src="https://media.graphassets.com/qjtAYwCZSquBKVmmPXMu" alt="Car Image">
+        </div>
+        <div class="car-details">
+          <h2>Mercedes C class</h2>
+          <p>Year:2010</p>
+          <p>Transmission:Manual</p>
+          <p>Price:10000</p>
+          <p>Location:Sofia</p>
+          <p>Colour:red</p>
+          <ul>
+            <li><span>Volume:</span>1.5</li>
+            <li><span>Type:</span>Diesel</li>
+            <li><span>Power:</span>POWER</li>
+            <li><span>Mileage:</span>169000</li>
+            <li><span>Eco Standard:</span>Euro 5</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="car-container">
+        <div class="car-image">
+          <img src="https://media.graphassets.com/qjtAYwCZSquBKVmmPXMu" alt="Car Image">
+        </div>
+        <div class="car-details">
+          <h2>Mercedes C class</h2>
+          <p>Year:2010</p>
+          <p>Transmission:Manual</p>
+          <p>Price:10000</p>
+          <p>Location:Sofia</p>
+          <p>Colour:red</p>
+          <ul>
+            <li><span>Volume:</span>1.5</li>
+            <li><span>Type:</span>Diesel</li>
+            <li><span>Power:</span>POWER</li>
+            <li><span>Mileage:</span>169000</li>
+            <li><span>Eco Standard:</span>Euro 5</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more columns with car details for additional items -->
+
+  </div>
+
+</body>
+
+</html>
