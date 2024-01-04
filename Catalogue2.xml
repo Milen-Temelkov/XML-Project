@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="project.xsl"?>
+
+<!DOCTYPE catalogue [
+<!NOTATION jpeg SYSTEM "JPG">
+<!ENTITY img1 SYSTEM "image1.jpg" NDATA jpeg>
+<!ENTITY img2 SYSTEM "image2.jpg" NDATA jpeg>
+<!ENTITY img3 SYSTEM "image3.jpg" NDATA jpeg>
+<!-- Place for images -->
+]>
+
+<!-- може да се добавят елементи за тип купе и брой врати-->
+<catalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Catalogue2.xsd">
+	<carList>
+		<car>
+			<details>
+				<brand>VW</brand>
+				<model>Passat</model>
+			</details>
+			<engine>
+				<volume>2.0</volume>
+				<type>Diesel engine</type>
+				<power>140</power>
+				<miliage>320000</miliage>
+				<ecoStandart>EURO 5</ecoStandart>
+			</engine>
+			<year>2014</year>
+			<transmission>Manual</transmission>
+			<price>15500</price>
+			<location>Ruse</location>
+			<colour>grey</colour>
+			<image src="img1"/>
+		</car>
+		<car>
+			<details>
+				<brand>Mercedes</brand>
+				<model>E class</model>
+			</details>
+			<engine>
+				<volume>5.0</volume>
+				<type>Petrol engine</type>
+				<power>306</power>
+				<miliage>186000</miliage>
+				<ecoStandart>EURO 4</ecoStandart>
+			</engine>
+			<year>2003</year>
+			<transmission>Automatic</transmission>
+			<price>10500</price>
+			<location>Yambol</location>
+			<colour>grey</colour>
+			<image src="img2"/>
+		</car>
+
+		<car>
+			<details>
+				<brand>Peugeot</brand>
+				<model>508</model>
+			</details>
+			<engine>
+				<volume>2.0</volume>
+				<type>Diesel engine</type>
+				<power>180</power>
+				<miliage>167000</miliage>
+				<ecoStandart>EURO 6</ecoStandart>
+			</engine>
+			<year>2019</year>
+			<transmission>Automatic</transmission>
+			<price>46500</price>
+			<location>Burgas</location>
+			<colour>grey</colour>
+			<image src="img3"/>
+		</car>
+
+	</carList>
+</catalogue>
