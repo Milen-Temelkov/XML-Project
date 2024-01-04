@@ -3,20 +3,22 @@
 
 <!DOCTYPE catalogue [
 <!NOTATION jpeg SYSTEM "JPG">
-<!ENTITY img1 SYSTEM "image1.jpg" NDATA jpeg>
-<!ENTITY img2 SYSTEM "image2.jpg" NDATA jpeg>
-<!ENTITY img3 SYSTEM "image3.jpg" NDATA jpeg>
-<!-- Place for images -->
+<!ENTITY img1 PUBLIC "car1_image_identifier" "https://media.graphassets.com/qjtAYwCZSquBKVmmPXMu" NDATA jpeg>
+<!ENTITY img2 PUBLIC "car2_image_identifier" "https://media.graphassets.com/qjtAYwCZSquBKVmmPXMu" NDATA jpeg>
+<!ENTITY img3 PUBLIC "car3_image_identifier" "https://media.graphassets.com/qjtAYwCZSquBKVmmPXMu" NDATA jpeg>
 ]>
 
-<!-- може да се добавят елементи за тип купе и брой врати-->
 <catalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Catalogue2.xsd">
+	<brands>	
+		<brand ID="1" name="VW"/>
+		<brand ID="2" name="Mercedes"/>
+		<brand ID="3" name="Peugeut"/>
+		<brand ID="4" name="Toyota"/>
+	</brands>
+
 	<carList>
 		<car>
-			<details>
-				<brand>VW</brand>
-				<model>Passat</model>
-			</details>
+			<model brandID="1">Passat</model>
 			<engine>
 				<volume>2.0</volume>
 				<type>Diesel engine</type>
@@ -31,11 +33,9 @@
 			<colour>grey</colour>
 			<image src="img1"/>
 		</car>
+		
 		<car>
-			<details>
-				<brand>Mercedes</brand>
-				<model>E class</model>
-			</details>
+			<model brandID="2">E class</model>
 			<engine>
 				<volume>5.0</volume>
 				<type>Petrol engine</type>
@@ -52,10 +52,7 @@
 		</car>
 
 		<car>
-			<details>
-				<brand>Peugeot</brand>
-				<model>508</model>
-			</details>
+			<model brandID="3">508</model>
 			<engine>
 				<volume>2.0</volume>
 				<type>Diesel engine</type>
@@ -72,4 +69,5 @@
 		</car>
 
 	</carList>
+
 </catalogue>
