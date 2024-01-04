@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified">
-
 
 <!-- this is ambiguous -->
 <xs:simpleType name="car_brands">
@@ -138,7 +137,7 @@
 <xs:element name="catalogue">
 	<xs:complexType>
 		<xs:element ref="carList"/>
-	<xs:complexType>
+	</xs:complexType>
 </xs:element>
 
 <!-- list element -->
@@ -496,7 +495,7 @@
 			<xs:element name="power" type="horsepower_int"/>
 			<xs:element name="miliage" type="miliage_int"/>
 			<xs:element name="ecoStandart" type="ecoStandarts"/>
-		<xs:sequence>
+		</xs:sequence>
 	</xs:complexType>
 </xs:element>
 

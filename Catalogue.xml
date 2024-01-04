@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?<xml-stylesheet type="text/xsl" href="project.xsl"?>
+<?xml-stylesheet type="text/xsl" href="project.xsl"?>
 
 <!DOCTYPE catalogue [
-<!ENTITY img1 SYSTEM "https://media.graphassets.com/qjtAYwCZSquBKVmmPXMu">
-<!ENTITY img2 SYSTEM "https://i.ytimg.com/vi/u_v3_H3BJZ4/maxresdefault.jpg">
-<!ENTITY img3 SYSTEM "https://carinvest-europe.com/wp-content/uploads/2023/01/peugeot-508-2019-15-568x545.jpg">
+<!ENTITY img1 SYSTEM "https://media.graphassets.com/qjtAYwCZSquBKVmmPXMu" NDATA jpg>
+<!ENTITY img2 SYSTEM "https://i.ytimg.com/vi/u_v3_H3BJZ4/maxresdefault.jpg" NDATA jpg>
+<!ENTITY img3 SYSTEM "https://carinvest-europe.com/wp-content/uploads/2023/01/peugeot-508-2019-15-568x545.jpg" NDATA jpg>
+<!NOTATION jpg PUBLIC "jpg"
 <!-- Place for images -->
 ]>	
 
