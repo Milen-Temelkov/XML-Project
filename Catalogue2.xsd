@@ -1,22 +1,45 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:element name="catalogue">
 		<xs:complexType>
 			<xs:sequence>
+				<xs:element name="brands">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="brand" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="ID" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:string"/>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="name" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:string"/>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
 				<xs:element name="carList" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="car" maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="details">
+										<xs:element name="model">
 											<xs:complexType>
-												<xs:sequence>
-													<xs:element name="brand" type="xs:string"/>
-													<xs:element name="model" type="xs:string"/>
-												</xs:sequence>
+												<xs:attribute name="brandID" use="required">
+													<xs:simpleType>
+														<xs:restriction base="xs:string"/>
+													</xs:simpleType>
+												</xs:attribute>
 											</xs:complexType>
 										</xs:element>
+										
 										<xs:element name="engine">
 											<xs:complexType>
 												<xs:sequence>
@@ -40,11 +63,28 @@
 										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
+
+								<!--dont know if thats needed-->
+								<xs:key name="IDKey">
+									<xs:selector xpath="catalogue/carList/car/model"/>
+									<xs:field xpath="@brandID"/>
+								</xs:key>
+
 							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
+
+		<xs:key name="brandKey">
+			<xs:selector xpath="./brands/brand"/>
+			<xs:field xpath="@ID"/>
+		</xs:key>
+		<xs:keyref name="brandReference" refer="brandKey">
+			<xs:selector xpath="./carList/car/model"/>
+			<xs:field xpath="./@brandID"/>
+		</xs:keyref>
+
 	</xs:element>
 </xs:schema>
