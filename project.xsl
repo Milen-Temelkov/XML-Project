@@ -6,6 +6,7 @@
     <html>
       <head>
         <title>Каталог за коли</title>
+        <link rel="stylesheet" href="Catalogue.css" type="text/css" />
       </head>
       <body>
         <h1>Каталог за коли</h1>
@@ -22,24 +23,27 @@
           order = "ascending">
       </xsl:sort>
 
-      <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-        <h2>
-          <!-- Use key() function to get the brand name -->
-          <xsl:value-of select="key('brandById', model/@brandID)/@name"/>
-          <xsl:text> </xsl:text>
-          <xsl:value-of select="model"/>
-        </h2>
-        <p>Year: <xsl:value-of select="year"/></p>
-        <p>Transmission: <xsl:value-of select="transmission"/></p>
-        <p>Price: <xsl:value-of select="price"/></p>
-        <p>Location: <xsl:value-of select="location"/></p>
-        <p>Colour: <xsl:value-of select="colour"/></p>
-        <p>Volume: <xsl:value-of select="engine/volume"/></p>
-        <p>Type: <xsl:value-of select="engine/type"/></p>
-        <p>Power: <xsl:value-of select="engine/power"/></p>
-        <p>Mileage: <xsl:value-of select="engine/miliage"/></p>
-        <p>Eco Standard: <xsl:value-of select="engine/ecoStandart"/></p>
-        <img src="{unparsed-entity-uri(image/@src)}" disable-output-escaping="yes"/>
+      <div class="car-container">
+        <div class="car-details">
+          <h2>
+            <xsl:value-of select="key('brandById', model/@brandID)/@name"/>
+            <xsl:text> </xsl:text>
+            <xsl:value-of select="model"/>
+          </h2>
+          <p>Година: <xsl:value-of select="year"/></p>
+          <p>Скоростна кутия: <xsl:value-of select="transmission"/></p>
+          <p>Цена: <xsl:value-of select="price"/></p>
+          <p>Местоположение: <xsl:value-of select="location"/></p>
+          <p>Цвят: <xsl:value-of select="colour"/></p>
+          <p>Обем на двигателя: <xsl:value-of select="engine/volume"/> L</p>
+          <p>Тип на двигателя: <xsl:value-of select="engine/type"/></p>
+          <p>Мощност: <xsl:value-of select="engine/power"/></p>
+          <p>Пробег: <xsl:value-of select="engine/miliage"/></p>
+          <p>Еко категория: <xsl:value-of select="engine/ecoStandart"/></p>
+        </div>
+        <div class="car-image">
+          <img src="{unparsed-entity-uri(image/@src)}" disable-output-escaping="yes"/>
+        </div>
       </div>
 
   	</xsl:for-each>
