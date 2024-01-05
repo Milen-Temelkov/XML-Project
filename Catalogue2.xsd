@@ -62,7 +62,7 @@
 									</xs:sequence>
 								</xs:complexType>
 
-								<!--dont know if thats needed-->
+								
 								<xs:key name="IDKey">
 									<xs:selector xpath="catalogue/carList/car/model"/>
 									<xs:field xpath="@brandID"/>
