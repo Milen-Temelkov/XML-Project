@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="catalogue">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="brands">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="brand" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="ID" type="xs:string" use="required">
+									</xs:attribute>
+									<xs:attribute name="name" type="xs:string" use="required">
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element name="carList" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="car" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="model">
+											<xs:complexType>
+    										  <xs:simpleContent>
+    										    <xs:extension base="xs:string">    									
+    										      <xs:attribute name="brandID" type="xs:string" use="required"/>
+    										    </xs:extension>
+    										  </xs:simpleContent>
+    										</xs:complexType>
+										</xs:element>
+										
+										<xs:element name="engine">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="volume" type="xs:double"/>
+													<xs:element name="type" type="xs:string"/>
+													<xs:element name="power" type="xs:integer"/>
+													<xs:element name="miliage" type="xs:integer"/>
+													<xs:element name="ecoStandart" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										
+										<xs:element name="year" type="xs:integer"/>
+										<xs:element name="transmission" type="xs:string"/>
+										<xs:element name="price" type="xs:integer"/>
+										<xs:element name="location" type="xs:string"/>
+										<xs:element name="colour" type="xs:string"/>
+										<xs:element name="image">
+											<xs:complexType>
+												<xs:attribute name="src" type="xs:ENTITY"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+
+								
+								<xs:key name="IDKey">
+									<xs:selector xpath="catalogue/carList/car/model"/>
+									<xs:field xpath="@brandID"/>
+								</xs:key>
+
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:key name="brandKey">
+			<xs:selector xpath="./brands/brand"/>
+			<xs:field xpath="@ID"/>
+		</xs:key>
+
+		<xs:keyref name="brandReference" refer="brandKey">
+			<xs:selector xpath="./carList/car/model"/>
+			<xs:field xpath="./@brandID"/>
+		</xs:keyref>
+
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cars.xsl"?>
+
+<!DOCTYPE catalogue [
+<!NOTATION jpeg SYSTEM "JPG">
+<!ENTITY img1 PUBLIC "car1_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/Passat.jpg" NDATA jpeg>
+<!ENTITY img2 PUBLIC "car2_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/E%20class.jpg" NDATA jpeg>
+<!ENTITY img3 PUBLIC "car3_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/508.jpg" NDATA jpeg>
+<!ENTITY img4 PUBLIC "car4_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/Clio.jpg" NDATA jpeg>
+<!ENTITY img5 PUBLIC "car5_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/Civic.jpg" NDATA jpeg>
+<!ENTITY img6 PUBLIC "car6_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/toyota.jpg" NDATA jpeg>
+<!ENTITY img7 PUBLIC "car7_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/Mercedes123.jpg" NDATA jpeg>
+<!ENTITY img8 PUBLIC "car8_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/Mokka.jpg" NDATA jpeg>]>
+
+
+<catalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cars.xsd">
+	<brands>	
+		<brand ID="1" name="VW"/>
+		<brand ID="2" name="Mercedes"/>
+		<brand ID="3" name="Peugeut"/>
+		<brand ID="4" name="Toyota"/>
+		<brand ID="5" name="Renault"/>
+		<brand ID="6" name="Honda"/>
+		<brand ID="7" name="Opel"/>
+	</brands>
+
+	<carList>
+		<car>
+			<model brandID="1">Passat</model>
+			<engine>
+				<volume>2.0</volume>
+				<type>Дизелов</type>
+				<power>140</power>
+				<miliage>320000</miliage>
+				<ecoStandart>EURO 5</ecoStandart>
+			</engine>
+			<year>2014</year>
+			<transmission>Ръчна</transmission>
+			<price>15500</price>
+			<location>Русе</location>
+			<colour>Сив</colour>
+			<image src="img1"/>
+		</car>
+		
+		<car>
+			<model brandID="2">E class</model>
+			<engine>
+				<volume>5.0</volume>
+				<type>Бензинов</type>
+				<power>306</power>
+				<miliage>186000</miliage>
+				<ecoStandart>EURO 4</ecoStandart>
+			</engine>
+			<year>2003</year>
+			<transmission>Автоматична</transmission>
+			<price>10500</price>
+			<location>Ямбол</location>
+			<colour>Сив</colour>
+			<image src="img2"/>
+		</car>
+
+		<car>
+			<model brandID="3">508</model>
+			<engine>
+				<volume>2.0</volume>
+				<type>Дизелов</type>
+				<power>180</power>
+				<miliage>167000</miliage>
+				<ecoStandart>EURO 6</ecoStandart>
+			</engine>
+			<year>2019</year>
+			<transmission>Автоматична</transmission>
+			<price>46500</price>
+			<location>Бургас</location>
+			<colour>Сив</colour>
+			<image src="img3"/>
+		</car>
+
+		<car>
+			<model brandID="5">Clio</model>
+			<engine>
+				<volume>1.5</volume>
+				<type>Дизелов</type>
+				<power>75</power>
+				<miliage>76000</miliage>
+				<ecoStandart>EURO 6</ecoStandart>
+			</engine>
+			<year>2019</year>
+			<transmission>Ръчна</transmission>
+			<price>19900</price>
+			<location>Пловдив</location>
+			<colour>Бял</colour>
+			<image src="img4"/>
+		</car>
+
+		<car>
+			<model brandID="6">Civic</model>
+			<engine>
+				<volume>1.4</volume>
+				<type>Бензинов</type>
+				<power>100</power>
+				<miliage>203000</miliage>
+				<ecoStandart>EURO 5</ecoStandart>
+			</engine>
+			<year>2014</year>
+			<transmission>Ръчна</transmission>
+			<price>15500</price>
+			<location>Пазарджик</location>
+			<colour>Светло сив</colour>
+			<image src="img5"/>
+		</car>
+
+		<car>
+			<model brandID="4">CH-R</model>
+			<engine>
+				<volume>1.8</volume>
+				<type>Хибриден</type>
+				<power>160</power>
+				<miliage>53000</miliage>
+				<ecoStandart>EURO 6</ecoStandart>
+			</engine>
+			<year>2019</year>
+			<transmission>Автоматична</transmission>
+			<price>47000</price>
+			<location>Благоевград</location>
+			<colour>Тъмно сив</colour>
+			<image src="img6"/>
+		</car>
+
+		<car>
+			<model brandID="2">123</model>
+			<engine>
+				<volume>2.4</volume>
+				<type>Дизелов</type>
+				<power>72</power>
+				<miliage>222222</miliage>
+				<ecoStandart>EURO 1</ecoStandart>
+			</engine>
+			<year>1983</year>
+			<transmission>Автоматична</transmission>
+			<price>9999</price>
+			<location>Видин</location>
+			<colour>Жълт</colour>
+			<image src="img7"/>
+		</car>
+
+		<car>
+			<model brandID="7">Mokka</model>
+			<engine>
+				<volume>0</volume>
+				<type>Електрически</type>
+				<power>136</power>
+				<miliage>12000</miliage>
+				<ecoStandart>EURO 6</ecoStandart>
+			</engine>
+			<year>2021</year>
+			<transmission>Автоматична</transmission>
+			<price>49900</price>
+			<location>Пловдив</location>
+			<colour>Зелен</colour>
+			<image src="img8"/>
+		</car>
+
+	</carList>
+
+</catalogue>
