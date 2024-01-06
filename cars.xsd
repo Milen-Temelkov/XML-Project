@@ -58,13 +58,7 @@
 										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
-
 								
-								<xs:key name="IDKey">
-									<xs:selector xpath="catalogue/carList/car/model"/>
-									<xs:field xpath="@brandID"/>
-								</xs:key>
-
 							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
