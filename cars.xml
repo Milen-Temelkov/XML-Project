@@ -3,6 +3,7 @@
 
 <!DOCTYPE catalogue [
 <!NOTATION jpeg SYSTEM "JPG">
+
 <!ENTITY img1 PUBLIC "car1_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/Passat.jpg" NDATA jpeg>
 <!ENTITY img2 PUBLIC "car2_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/E%20class.jpg" NDATA jpeg>
 <!ENTITY img3 PUBLIC "car3_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/508.jpg" NDATA jpeg>
@@ -10,23 +11,55 @@
 <!ENTITY img5 PUBLIC "car5_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/Civic.jpg" NDATA jpeg>
 <!ENTITY img6 PUBLIC "car6_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/toyota.jpg" NDATA jpeg>
 <!ENTITY img7 PUBLIC "car7_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/Mercedes123.jpg" NDATA jpeg>
-<!ENTITY img8 PUBLIC "car8_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/Mokka.jpg" NDATA jpeg>]>
+<!ENTITY img8 PUBLIC "car8_image_identifier" "https://raw.githubusercontent.com/Milen-Temelkov/XML-Project/main/assets/Mokka.jpg" NDATA jpeg>
+
+<!ELEMENT catalogue (brands, carList)>
+<!ATTLIST catalogue
+    xmlns:xsi CDATA #IMPLIED
+    xsi:noNamespaceSchemaLocation CDATA #IMPLIED>
+
+<!ELEMENT brands (brand+)>
+<!ELEMENT brand EMPTY>
+<!ATTLIST brand
+    ID ID #REQUIRED
+    name CDATA #REQUIRED>
+
+<!ELEMENT carList (car+)>
+<!ELEMENT car (model, engine, year, transmission, price, location, colour, image)>
+
+<!ELEMENT model (#PCDATA)>
+<!ATTLIST model brandID IDREF #REQUIRED>
+
+<!ELEMENT engine (volume, type, power, miliage, ecoStandart)>
+<!ELEMENT volume (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT power (#PCDATA)>
+<!ELEMENT miliage (#PCDATA)>
+<!ELEMENT ecoStandart (#PCDATA)>
+
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT transmission (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT colour (#PCDATA)>
+<!ELEMENT image EMPTY>
+<!ATTLIST image src ENTITY #REQUIRED>]>
 
 
 <catalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cars.xsd">
 	<brands>	
-		<brand ID="1" name="VW"/>
-		<brand ID="2" name="Mercedes"/>
-		<brand ID="3" name="Peugeut"/>
-		<brand ID="4" name="Toyota"/>
-		<brand ID="5" name="Renault"/>
-		<brand ID="6" name="Honda"/>
-		<brand ID="7" name="Opel"/>
+		<brand ID="br1" name="VW"/>
+		<brand ID="br2" name="Mercedes"/>
+		<brand ID="br3" name="Peugeut"/>
+		<brand ID="br4" name="Toyota"/>
+		<brand ID="br5" name="Renault"/>
+		<brand ID="br6" name="Honda"/>
+		<brand ID="br7" name="Opel"/>
 	</brands>
 
 	<carList>
 		<car>
-			<model brandID="1">Passat</model>
+			<model brandID="br1">Passat</model>
 			<engine>
 				<volume>2.0</volume>
 				<type>Дизелов</type>
@@ -43,7 +76,7 @@
 		</car>
 		
 		<car>
-			<model brandID="2">E class</model>
+			<model brandID="br2">E class</model>
 			<engine>
 				<volume>5.0</volume>
 				<type>Бензинов</type>
@@ -60,7 +93,7 @@
 		</car>
 
 		<car>
-			<model brandID="3">508</model>
+			<model brandID="br3">508</model>
 			<engine>
 				<volume>2.0</volume>
 				<type>Дизелов</type>
@@ -77,7 +110,7 @@
 		</car>
 
 		<car>
-			<model brandID="5">Clio</model>
+			<model brandID="br5">Clio</model>
 			<engine>
 				<volume>1.5</volume>
 				<type>Дизелов</type>
@@ -94,7 +127,7 @@
 		</car>
 
 		<car>
-			<model brandID="6">Civic</model>
+			<model brandID="br6">Civic</model>
 			<engine>
 				<volume>1.4</volume>
 				<type>Бензинов</type>
@@ -111,7 +144,7 @@
 		</car>
 
 		<car>
-			<model brandID="4">CH-R</model>
+			<model brandID="br4">CH-R</model>
 			<engine>
 				<volume>1.8</volume>
 				<type>Хибриден</type>
@@ -128,7 +161,7 @@
 		</car>
 
 		<car>
-			<model brandID="2">123</model>
+			<model brandID="br2">123</model>
 			<engine>
 				<volume>2.4</volume>
 				<type>Дизелов</type>
@@ -145,7 +178,7 @@
 		</car>
 
 		<car>
-			<model brandID="7">Mokka</model>
+			<model brandID="br7">Mokka</model>
 			<engine>
 				<volume>0</volume>
 				<type>Електрически</type>
